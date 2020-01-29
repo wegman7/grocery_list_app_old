@@ -1,0 +1,20 @@
+{% extends 'users/base.html' %}
+{% block content %}
+    {% if items %}
+        <h2>Grocery List:</h2>
+        <ul id="grocery-list">
+        {% for item in items %}
+            <li class="list-items">{{ item.item }}</li>
+        {% endfor %}
+        </ul>
+        <form id="new-item-form" method="post">
+            {% csrf_token %}
+        </form>
+    {% else %}
+        No items
+    {% endif %}
+        <div>
+            <button id="add-text">Add item</button>
+            <button id="delete-items">Delete items</button>
+        </div>
+{% endblock content %}
